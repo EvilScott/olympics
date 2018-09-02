@@ -1,0 +1,5 @@
+FROM node:9-alpine
+ADD package.json .
+ADD yarn.lock .
+RUN yarn install --ignore-engines
+CMD echo "ready"

@@ -1,0 +1,35 @@
+version: '3.3'
+services:
+  deps:
+    image: 'olympics-deps:latest'
+    build:
+      context: '.'
+      dockerfile: 'Dockerfile.deps'
+    volumes:
+    - 'node_modules:/node_modules'
+
+  db:
+    image: 'postgres:10'
+    restart: 'always'
+    volumes:
+      - 'pgdata:/var/lib/postgresql/data'
+
+  server:
+    image: 'node:9-alpine'
+    depends_on:
+    - 'deps'
+    - 'db'
+    environment:
+    - 'PATH=$PATH:/root/.node_modules/.bin/'
+    restart: 'always'
+    volumes:
+    - '.:/app'
+    - 'node_modules:/root/.node_modules'
+    working_dir: '/app'
+    entrypoint: 'yarn run server'
+    ports:
+      - 8080:8080
+
+volumes:
+  node_modules:
+  pgdata:

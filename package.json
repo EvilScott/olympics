@@ -6,6 +6,13 @@
   "license": "MIT",
   "dependencies": {
     "apollo-server-express": "^2.0.4",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "graphql": "^14.0.0"
+  },
+  "scripts": {
+    "server": "nodemon --watch src/lib src/lib/server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
   }
 }
