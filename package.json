@@ -1,0 +1,11 @@
+{
+  "name": "olympics",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "EvilScott <reis.robert.s@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server-express": "^2.0.4",
+    "express": "^4.16.3"
+  }
+}
